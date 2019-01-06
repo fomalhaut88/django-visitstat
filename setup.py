@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-visitstat',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',
@@ -29,4 +29,10 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    install_requires=[
+        'geoip2==2.9.0',
+        'django-crontab==0.7.1',
+    ],
+    package_dir={'visitstat': 'visitstat'},
+    package_data={'visitstat': ['data/GeoLite2-City.mmdb']}
 )

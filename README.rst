@@ -21,7 +21,14 @@ Quick stat
         'visitstat.middleware.visits.StatisticsMiddleware',
     ]
 
-3. Run "python manage.py migrate" to create the table.
+3. Add a new crontab job:
+
+    CRONJOBS = [
+        ...
+        ('*/5 * * * *', 'visitstat.cron.visit_geoip_fill'),
+    ]
+
+4. Run "python manage.py migrate" to create the table.
 
 Example
 -------

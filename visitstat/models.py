@@ -13,6 +13,8 @@ class Visit(models.Model):
     querystring = models.TextField(null=True, blank=True, default=None)
     status = models.IntegerField()
     reason = models.CharField(max_length=64)
+    country = models.CharField(max_length=100, null=True, default=None, blank=True)
+    city = models.CharField(max_length=100, null=True, default=None, blank=True)
 
     def __unicode__(self):
         return self.ip

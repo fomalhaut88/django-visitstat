@@ -1,15 +1,13 @@
-import pytz
-from datetime import datetime
+from django.utils import timezone
 
 from visitstat.models import Visit
-
 
 
 class StatisticsMiddleware(object):
     def process_response(self, request, response):
         try:
             Visit.objects.create(
-                datetime=datetime.now(pytz.utc),
+                datetime=timezone.now(),
                 ip=request.META.get('REMOTE_ADDR'),
                 method=request.method,
                 url=request.path,
