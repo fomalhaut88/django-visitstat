@@ -5,7 +5,7 @@ import geoip2.errors
 
 from django.db.transaction import atomic
 
-from . import models
+from visitstat import models
 
 
 ROOT_DIR = os.path.dirname(__file__)
