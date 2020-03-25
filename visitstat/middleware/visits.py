@@ -8,7 +8,7 @@ class StatisticsMiddleware(object):
         try:
             Visit.objects.create(
                 datetime=timezone.now(),
-                ip=request.META.get('REMOTE_ADDR'),
+                ip=request.META.get('HTTP_X_REAL_IP'),
                 method=request.method,
                 url=request.path,
                 referer=request.META.get('HTTP_REFERER'),
